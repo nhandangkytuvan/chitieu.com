@@ -9,7 +9,7 @@
         <div class="panel-heading text-center">Thêm chi</div>
         <div class="panel-body">
             <div class="form-group">
-                <input type="number" class="form-control" name="post_money" placeholder="Số tiền" value="{{ old('post_money') }}">
+                <input type="text" class="form-control" name="post_money" placeholder="Số tiền" value="{{ old('post_money') }}">
             </div>
             <div class="form-group">
                 <textarea class="form-control" placeholder="Ghi chú"  name="post_detail" id="post_detail">{{ old('post_detail') }}</textarea>

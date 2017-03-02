@@ -23,6 +23,8 @@ class PostController extends Controller{
             $post = new Post;
             $post->user_id = $user->id;
             $post->post_money = $request->input('post_money'); 
+            $post->post_money = str_replace(',00','',$post->post_money);
+            $post->post_money = str_replace('.','',$post->post_money);
             $post->post_detail = $request->input('post_detail');            
             if($post->save()){
                 Session::flash('msg-success','Thêm thành công.');
@@ -46,6 +48,8 @@ class PostController extends Controller{
             }
             $this->validate($request,$this->rules,$this->messages);
             $post->post_money = $request->input('post_money');
+            $post->post_money = str_replace(',00','',$post->post_money);
+            $post->post_money = str_replace('.','',$post->post_money);
             $post->post_detail = $request->input('post_detail');
             if($post->save()){
                 Session::flash('msg-success','Sửa thành công.');

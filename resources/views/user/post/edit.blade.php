@@ -9,7 +9,7 @@
         <div class="panel-heading text-center">Sửa lại</div>
         <div class="panel-body">
             <div class="form-group">
-                <input type="number" class="form-control" name="post_money" placeholder="Số tiền" value="{{ $data['post']->post_money }}">
+                <input type="text" class="form-control" name="post_money" placeholder="Số tiền" value="{{ $data['post']->post_money*100 }}">
             </div>
             <div class="form-group">
                 <textarea class="form-control" name="post_detail" id="post_detail" placeholder="Ghi chú">{{ $data['post']->post_detail }}</textarea>

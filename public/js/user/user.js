@@ -9,4 +9,9 @@ $(document).ready(function() {
             $(el).parent('li.list-group-item').addClass('active');
         }
     });
+    $('input[name="post_money"]').priceFormat({
+	    prefix: '',
+	    centsSeparator: ',',
+	    thousandsSeparator: '.'
+	});
 });
