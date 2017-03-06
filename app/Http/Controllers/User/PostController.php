@@ -26,6 +26,7 @@ class PostController extends Controller{
             $post->post_money = str_replace(',00','',$post->post_money);
             $post->post_money = str_replace('.','',$post->post_money);
             $post->post_detail = $request->input('post_detail');            
+            $post->post_date = date('Y-m-d 00:00:00',strtotime($request->input('post_date')));            
             if($post->save()){
                 Session::flash('msg-success','Thêm thành công.');
                 return redirect('user/post/edit/'.$post->id);
@@ -51,6 +52,7 @@ class PostController extends Controller{
             $post->post_money = str_replace(',00','',$post->post_money);
             $post->post_money = str_replace('.','',$post->post_money);
             $post->post_detail = $request->input('post_detail');
+            $post->post_date = date('Y-m-d 00:00:00',strtotime($request->input('post_date')));  
             if($post->save()){
                 Session::flash('msg-success','Sửa thành công.');
                 return redirect('user/post/edit/'.$post->id);

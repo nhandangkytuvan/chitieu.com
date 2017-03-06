@@ -14,4 +14,7 @@ $(document).ready(function() {
 	    centsSeparator: ',',
 	    thousandsSeparator: '.'
 	});
+    $('input[name="post_date"]').datetimepicker({
+        format:'DD-MM-YYYY',
+    })
 });

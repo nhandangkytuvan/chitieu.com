@@ -15,6 +15,14 @@
                 <textarea class="form-control" placeholder="Ghi chú"  name="post_detail" id="post_detail">{{ old('post_detail') }}</textarea>
             </div>
             <div class="form-group">
+                <div class="input-group">
+                    <input type="text" class="form-control" name="post_date" placeholder="Thời gian" value="{{ old('post_date') }}">
+                    <span class="input-group-addon">
+                        <i class="glyphicon glyphicon-calendar"></i>
+                    </span>
+                </div>
+            </div>
+            <div class="form-group">
                 <button class="btn btn-success" type="submit"><span class="glyphicon glyphicon-edit"></span>  Thêm mới</button>
             </div>
         </div>

@@ -23,9 +23,10 @@
     <table class="table table-bordered">
         <tr class="active">
             <td>ID</td>
-            <td>Số tiền</td>
-            <td>Ghi chú</td>
+            <td>Money</td>
+            <td>Note</td>
             <td>User</td>
+            <td>Date</td>
             <td>#</td>
         </tr>
         @foreach($data['posts'] as $key => $post)
@@ -34,6 +35,7 @@
             <td>{{ number_format($post->post_money,'0',',','.') }}</td>
             <td>{{ $post->post_detail }}</td>
             <td>{{ $post->user->user_name }}</td>
+            <td>{{ date('d/m',strtotime($post->post_date)) }}</td>
             <td>
                 <div class="clearfix">
                     <div class="pull-right">
