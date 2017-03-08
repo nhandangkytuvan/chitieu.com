@@ -19,7 +19,7 @@ class UserController extends Controller{
 	];
 	public function logout(Request $request){
 		Session::flush();
-		Session::flash('msg-info','Hẹn gặp lại.');
+		Session::flash('info','Hẹn gặp lại.');
 		return redirect('/');
 	}
 	public function edit(Request $request){
@@ -36,7 +36,7 @@ class UserController extends Controller{
                 $user->user_avatar = $user_avatar;
             }
             $user->save();
-            Session::flash('msg-success','Sửa thông tin thành công.');
+            Session::flash('success','Sửa thông tin thành công.');
             return back();
 		}else{
 			$data['user'] = $user;
@@ -53,10 +53,10 @@ class UserController extends Controller{
 			if(Hash::check($request->input('password_old'),$user->password)){
 				$user->password = Hash::make($request->input('password_new'));
 				$user->save();
-				Session::flash('msg-success','Đổi password thành công.');
+				Session::flash('success','Đổi password thành công.');
 				return back();
 			}else{
-				Session::flash('msg-error','Password cũ không đúng.');
+				Session::flash('error','Password cũ không đúng.');
 				return back();
 			}
 		}	

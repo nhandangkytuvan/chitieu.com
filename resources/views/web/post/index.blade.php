@@ -23,19 +23,26 @@
     <table class="table table-bordered">
         <tr class="active">
             <td>ID</td>
-            <td>Số tiền</td>
-            <td>Ghi chú</td>
+            <td>Money</td>
+            <td>Note</td>
             <td>User</td>
+            <td>Date</td>
         </tr>
+        @php $sum = 0 @endphp
         @foreach($data['posts'] as $key => $post)
+        @php $sum += $post->post_money @endphp
         <tr>
             <td>{{ $post->id }}</td>
             <td>{{ number_format($post->post_money,'0',',','.') }}</td>
             <td>{{ $post->post_detail }}</td>
             <td>{{ $post->user->user_name }}</td>
+            <td>{{ date('d/m',strtotime($post->post_date)) }}</td>
         </tr>
         @endforeach
     </table>
+    <div class="panel-footer">
+        Sum: {{ number_format($sum,'0',',','.') }}
+    </div>
 </div>
 @endsection('content')
 

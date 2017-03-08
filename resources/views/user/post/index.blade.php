@@ -29,7 +29,9 @@
             <td>Date</td>
             <td>#</td>
         </tr>
+        @php $sum = 0 @endphp
         @foreach($data['posts'] as $key => $post)
+        @php $sum += $post->post_money @endphp
         <tr>
             <td>{{ $post->id }}</td>
             <td>{{ number_format($post->post_money,'0',',','.') }}</td>
@@ -62,6 +64,9 @@
         </tr>
         @endforeach
     </table>
+    <div class="panel-footer">
+        Sum: {{ number_format($sum,'0',',','.') }}
+    </div>
 </div>
 @endsection('content')
 

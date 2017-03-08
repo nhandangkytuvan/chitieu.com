@@ -28,10 +28,10 @@ class PostController extends Controller{
             $post->post_detail = $request->input('post_detail');            
             $post->post_date = date('Y-m-d 00:00:00',strtotime($request->input('post_date')));            
             if($post->save()){
-                Session::flash('msg-success','Thêm thành công.');
+                Session::flash('success','Thêm thành công.');
                 return redirect('user/post/edit/'.$post->id);
             }else{
-                Session::flash('msg-error','Thêm lỗi.');
+                Session::flash('error','Thêm lỗi.');
                 return back();
             }
         }else{
@@ -44,7 +44,7 @@ class PostController extends Controller{
         $post = Post::find($post_id);
         if($request->isMethod('post')){
             if (Gate::forUser($user)->denies('edit-post', $post)) {
-                Session::flash('msg-error','Không phải của bạn.');
+                Session::flash('error','Không phải của bạn.');
                 return back();
             }
             $this->validate($request,$this->rules,$this->messages);
@@ -54,10 +54,10 @@ class PostController extends Controller{
             $post->post_detail = $request->input('post_detail');
             $post->post_date = date('Y-m-d 00:00:00',strtotime($request->input('post_date')));  
             if($post->save()){
-                Session::flash('msg-success','Sửa thành công.');
+                Session::flash('success','Sửa thành công.');
                 return redirect('user/post/edit/'.$post->id);
             }else{
-                Session::flash('msg-error','Sửa lỗi.');
+                Session::flash('error','Sửa lỗi.');
                 return back();
             }
         }else{
@@ -85,14 +85,14 @@ class PostController extends Controller{
         $post = Post::find($post_id);
         if($request->isMethod('post')){
             if (Gate::forUser($user)->denies('delete-post', $post)) {
-                Session::flash('msg-error','Không phải của bạn.');
+                Session::flash('error','Không phải của bạn.');
                 return back();
             }
             if($post->delete()){
-                Session::flash('msg-success','Xóa thành công.');
+                Session::flash('success','Xóa thành công.');
                 return redirect('user/post/index');
             }else{
-                Session::flash('msg-error','Xóa lỗi.');
+                Session::flash('error','Xóa lỗi.');
                 return back();
             }
         }else{

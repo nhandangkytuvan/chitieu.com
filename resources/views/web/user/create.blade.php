@@ -1,28 +1,48 @@
+@extends('layout.web')
+@section('menu')
+    @include('menu.menuWeb')
+@endsection('menu')
+@section('content')
 <div class="panel panel-default">
     <div class="panel-heading text-center">
-        Tạo user
+        Thêm người dùng
     </div>
     <!-- Tab panes -->
     <div class="panel-body">
         <div class="row">
             <div class="col-xs-12 col-sm-8 col-sm-offset-2">
                 <div class="panel-body">
-                    <form class="form-horizontal" method="post">
+                    <form class="form" method="post">
                         {{ csrf_field() }}
-                        <div class="form-group">
-                            <label class="control-label">Nhóm user</label>
-                            <div class="">
-                                <div class="input-group">
-                                    <span class="input-group-addon"><i class="fa fa-user" aria-hidden="true"></i></span>
-                                    <select name="user_group" class="form-control">
-                                        <option value="admin">Quản trị</option>
-                                        <option value="bien-tap">Biên tập</option>
-                                        <option value="seo">Seo</option>
-                                    </select>
+                        <div class="row">
+                            <div class="col-md-7">
+                                <div class="form-group">
+                                    <label class="control-label">Tên đăng nhập</label>
+                                    <div class="">
+                                        <div class="input-group">
+                                            <span class="input-group-addon"><i class="fa fa-user" aria-hidden="true"></i></span>
+                                            <input type="text" class="form-control" name="username" value="{{ old('username') }}" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-5">
+                                <div class="form-group">
+                                    <label class="control-label">Nhóm</label>
+                                    <div class="">
+                                        <div class="input-group">
+                                            <span class="input-group-addon"><i class="fa fa-user" aria-hidden="true"></i></span>
+                                            <select name="user_group" class="form-control">
+                                                <option value="user">Người dùng</option>
+                                                <option value="company">Công ty</option>
+                                                <option value="education">Đào tạo</option>
+                                            </select>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                         <div class="form-group">
+                        <div class="form-group">
                             <label class="control-label">Họ và tên</label>
                             <div class="">
                                 <div class="input-group">
@@ -32,11 +52,11 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="control-label">Tên đăng nhập</label>
+                            <label class="control-label">Email</label>
                             <div class="">
                                 <div class="input-group">
-                                    <span class="input-group-addon"><i class="fa fa-user" aria-hidden="true"></i></span>
-                                    <input type="text" class="form-control" name="username" value="{{ old('username') }}" />
+                                    <span class="input-group-addon"><i class="glyphicon glyphicon-envelope" aria-hidden="true"></i></span>
+                                    <input type="email" class="form-control" name="user_email" value="{{ old('user_email') }}" />
                                 </div>
                             </div>
                         </div>
@@ -68,3 +88,4 @@
         </div>
     </div>
 </div>
+@endsection('content')
